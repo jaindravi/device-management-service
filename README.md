@@ -1,1 +1,1 @@
-# device-manager
+# device-management-service
