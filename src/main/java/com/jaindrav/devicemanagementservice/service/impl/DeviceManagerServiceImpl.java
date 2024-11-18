@@ -3,6 +3,7 @@ package com.jaindrav.devicemanagementservice.service.impl;
 import com.jaindrav.devicemanagementservice.model.Device;
 import com.jaindrav.devicemanagementservice.repository.DeviceRepository;
 import com.jaindrav.devicemanagementservice.service.DeviceManagerService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,9 +23,9 @@ public class DeviceManagerServiceImpl implements DeviceManagerService {
     }
 
     @Override
-    public void addDevice(Device device) {
+    public Device addDevice(Device device) {
         device.setCreationTime(LocalDateTime.now());
-        deviceRepository.save(device);
+        return deviceRepository.save(device);
     }
 
     @Override
@@ -49,6 +50,9 @@ public class DeviceManagerServiceImpl implements DeviceManagerService {
 
     @Override
     public void deleteDevice(Long deviceId) {
+        if(!deviceRepository.existsById(deviceId)){
+            throw new EntityNotFoundException("Device with Id " +deviceId+ " not found");
+        }
         deviceRepository.deleteById(deviceId);
     }
 

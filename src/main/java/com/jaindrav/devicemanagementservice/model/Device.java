@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
+@AllArgsConstructor
 public class Device {
 
     @Id

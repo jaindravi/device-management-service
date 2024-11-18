@@ -59,7 +59,6 @@ public class DeviceController {
          Device updatedDevice = deviceService.updateDevice(deviceId, device);
          return new ResponseEntity<>(updatedDevice, HttpStatus.OK);
      }catch(Exception ex){
-         //return new ResponseEntity<>(HttpStatus.NOT_FOUND);
          return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
      }
     }

@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface DeviceManagerService {
 
      List<Device> getAllDevices();
-     void addDevice(Device device);
+     Device addDevice(Device device);
      Optional<Device> getDeviceById(Long deviceId);
      Device updateDevice(Long deviceID, Device device);
      void deleteDevice(Long deviceId);
