@@ -102,6 +102,8 @@ curl -X PUT 'http://localhost:8080/devices/update/1' \
 "brand":"Sony"
 }'
 
+Note : UpdationTime field is also populated in response for update operation which stores the date and time of updation.  
+
 #### Retrieve Device by Brand:  
 
 curl -X GET 'http://localhost:8080/devices/getByBrand?brand=Apple'
