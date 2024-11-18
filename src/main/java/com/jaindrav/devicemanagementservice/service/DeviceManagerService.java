@@ -1,16 +1,17 @@
 package com.jaindrav.devicemanagementservice.service;
 
 import com.jaindrav.devicemanagementservice.model.Device;
-import org.springframework.stereotype.Service;
 
-@Service
+import java.util.List;
+import java.util.Optional;
+
 public interface DeviceManagerService {
 
-    public Device getAllDevices();
-    public void addDevice(Device device);
-    public Device getDeviceById(long deviceId);
-    public void updateDevice(Device device);
-    public void deleteDevice(String deviceName);
-    public Device searchDeviceByName(String deviceName);
+     List<Device> getAllDevices();
+     void addDevice(Device device);
+     Optional<Device> getDeviceById(Long deviceId);
+     Device updateDevice(Long deviceID, Device device);
+     void deleteDevice(Long deviceId);
+     List<Device> searchDevicesByBrand(String brand);
 
 }
